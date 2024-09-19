@@ -189,42 +189,12 @@
     </a>
     <div class="category-and-date">
         
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2024/9/19
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        
-        
-    </div>
-    <a href="/2024/09/19/python%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BE%A8%E6%9E%90/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2024/09/19/0919%E7%BB%84%E4%BC%9A/">
-        <h2 class="post-title">0919组会</h2>
-    </a>
-    <div class="category-and-date">
-        
         <span class="category">
-            <a href="/categories/%E7%A0%94%E7%A9%B6%E7%94%9F/">
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                研究生
+                程序猿
             </a>
         </span>
         
@@ -240,7 +210,124 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <h2 id="分离识别条件组会"><a href="#分离识别条件组会" class="headerlink" title="分离识别条件组会"></a>分离识别条件组会</h2><p><strong>参会人员：</strong> 姚振，张凤甜</p>
+            <h2 id="以-python-为基础的数据类型"><a href="#以-python-为基础的数据类型" class="headerlink" title="以 python 为基础的数据类型"></a>以 python 为基础的数据类型</h2><p>Python 本身提供了一些基本的数据类型，这些类型用于存储简单的数据：  </p>
+<ul>
+<li>整数（int）：用于存储整数值，如 10 或 -3。  </li>
+<li>浮点数（float）：用于存储带小数点的数值，如 3.14 或 -1.0。  </li>
+<li>布尔值（bool）：用于表示真值（True）或假值（False）。  </li>
+<li>字符串（str）：用于存储文本数据，如 “Hello”。</li>
+</ul>
+<p>而为了存储多个数据，便又衍生除了四种数据类型：  </p>
+<ul>
+<li>列表（list）：存储多个元素，可以包含不同类型的元素，如 [1, “apple”, 3.14]。  </li>
+<li>元组（tuple）：类似列表，但一旦创建不可修改，如 (1, “apple”, 3.14)。  </li>
+<li>字典（dict）：键值对的集合，如 {“name”: “John”, “age”: 30}。  </li>
+<li>集合（set）：不包含重复元素的无序集合，如 {1, 2, 3}。</li>
+</ul>
+<h2 id="从-python-到-Numpy"><a href="#从-python-到-Numpy" class="headerlink" title="从 python 到 Numpy"></a>从 python 到 Numpy</h2><p>为了优化数值计算，Numpy 自己又引入了一套数据类型(称为dtype: int, float, bool_, complex, str_, unicode_), 这些数据类型通常是定长的，支持更高效的内存使用和性能优化。<br>NumPy 的数据类型通常用于在多维数组（ndarray）中存储数值数据。它们比 Python 的数据类型更高效，特别是当处理大量数值时。</p>
+<p>对于数学统计的研究者来说这个应该经常用到，它可以进行线性代数的矩阵乘法，求逆，特征值，矩阵分解等操作。也可以进行概率论的生成随机数的分布的操作。对于高维数组，可以进行切片，索引，排序，聚合等操作。</p>
+<pre><code class="python">import numpy as np
+# 整数数组
+int_arr = np.array([1, 2, 3], dtype=&#39;int32&#39;)
+# 浮点数数组
+float_arr = np.array([1.5, 2.5, 3.5], dtype=&#39;float64&#39;)
+# 布尔值数组
+bool_arr = np.array([True, False, True])
+# 复数数组
+complex_arr = np.array([1+2j, 3+4j, 5+6j])
+# 求均值
+mean = np.mean(arr)
+# 求标准差
+std = np.std(arr)
+# 矩阵乘法
+b = np.dot(a, a)
+# 求逆矩阵
+inv_a = np.linalg.inv(a)
+# 生成 10 个 0 到 100 之间的随机整数
+random_integers = np.random.randint(0, 100, 10)
+# 生成正态分布的随机数
+random_normal = np.random.randn(5)
+</code></pre>
+<h2 id="从-Numpy-到-Pandas"><a href="#从-Numpy-到-Pandas" class="headerlink" title="从 Numpy 到 Pandas"></a>从 Numpy 到 Pandas</h2><p>Pandas 是基于 NumPy 构建的库，专门用于处理结构化数据，如表格数据。Pandas 在内部使用了 NumPy 的 dtype，但也引入了一些自己的数据类型来增强功能：  </p>
+<ul>
+<li>整数类型（int64）和浮点类型（float64）：与 NumPy 相同，但 Pandas 允许它们包含 NaN（缺失值）。</li>
+<li>布尔类型（bool）：与 NumPy 相同，但允许包含缺失值。</li>
+<li>对象类型（object）：用于存储任意 Python 对象（如字符串或混合类型）。</li>
+<li>分类类型（category）：用于存储有限个不同的值（类似枚举），节省内存且提升性能。</li>
+<li>时间类型（datetime64、timedelta[ns]）：用于处理时间和时间差。</li>
+</ul>
+<p>Pandas 用 Series 和 DataFrame 结构存储多种不同的数据类型。</p>
+<h3 id="1-Series-序列"><a href="#1-Series-序列" class="headerlink" title="1. Series (序列)"></a>1. Series (序列)</h3><p>我的理解就是带有标签的一列数，只不过这个标签（索引 index ）就像是excel里默认的最左边的那一列，然后这列数的话可以是任意类型，例如年龄，姓名等等。实际上它可以包含任意类型的数据（整数、浮点数、字符串、布尔值等）。但是每个 Series 对象倾向于包含相同数据类型的元素</p>
+<pre><code class="python">import pandas as pd
+s = pd.Series([1, 2, 3, 4, 5])
+print(s)
+0    1
+1    2
+2    3
+3    4
+4    5
+</code></pre>
+<p>Series 可转化为 Numpy 中的数组：</p>
+<pre><code class="python">s = pd.Series([1, 2, 3, 4, 5])
+numpy_array = s.values  # 转换为 NumPy 数组
+</code></pre>
+<h3 id="2-DataFrame-数据表"><a href="#2-DataFrame-数据表" class="headerlink" title="2. DataFrame (数据表)"></a>2. DataFrame (数据表)</h3><p>可以看作是一个带标签的二维数组（矩阵），类似于 Excel 表格或者 SQL 数据表。每列都是一个 Series 对象。例如：  </p>
+<pre><code class="python">data = &#123;
+    &#39;Name&#39;: [&#39;Alice&#39;, &#39;Bob&#39;, &#39;Charlie&#39;],
+    &#39;Age&#39;: [25, 30, 35],
+    &#39;City&#39;: [&#39;New York&#39;, &#39;San Francisco&#39;, &#39;Los Angeles&#39;]
+&#125;
+df = pd.DataFrame(data)
+print(df)
+</code></pre>
+<pre><code class="markdown">      Name  Age           City
+0    Alice   25       New York
+1      Bob   30  San Francisco
+2  Charlie   35    Los Angeles
+</code></pre>
+<h3 id="3-Object"><a href="#3-Object" class="headerlink" title="3. Object"></a>3. Object</h3><p>它的作用就是当某一列包含不同的数据类型时，就将这列标记为 object 类型。这是一种通用的数据类型，它允许在同一列中包含不同类型的值（如字符串、整数、浮点数混合在一起）。这是因为 object 是 Python 中可以存储任意对象的类型。</p>
+<pre><code class="python">s = pd.Series([1, &quot;hello&quot;, 3.14, True])
+</code></pre>
+<h2 id="对于从-Web-获得的-JSON-数据"><a href="#对于从-Web-获得的-JSON-数据" class="headerlink" title="对于从 Web 获得的 JSON 数据"></a>对于从 Web 获得的 JSON 数据</h2><p>通常需要使用 Python 的 requests 库来发送 HTTP 请求获取数据，再通过 json 模块或 Pandas 来解析并处理数据。  </p>
+<pre><code class="python">import requests
+import json
+import pandas as pd
+
+url = &quot;https://api.example.com/data&quot;
+response = requests.get(url)
+# 检查请求是否成功
+if response.status_code == 200:
+    # 解析 JSON 数据
+    json_data = response.json()
+    print(json_data)  # 打印返回的 JSON 数据
+else:
+    print(f&quot;请求失败，状态码：&#123;response.status_code&#125;&quot;)
+
+# 假设从 API 获得的 JSON 数据
+json_data = &#39;&#39;&#39;
+&#123;
+    &quot;users&quot;: [
+        &#123;&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25, &quot;city&quot;: &quot;New York&quot;&#125;,
+        &#123;&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;San Francisco&quot;&#125;
+    ]
+&#125;
+&#39;&#39;&#39;
+# 将 JSON 字符串解析为 Python 对象
+parsed_data = json.loads(json_data)
+# 访问数据
+for user in parsed_data[&#39;users&#39;]:
+    print(f&quot;Name: &#123;user[&#39;name&#39;]&#125;, Age: &#123;user[&#39;age&#39;]&#125;, City: &#123;user[&#39;city&#39;]&#125;&quot;)
+# 假设 JSON 数据是从 API 获取的，并且返回的 JSON 格式是数组形式
+json_data = [
+    &#123;&quot;name&quot;: &quot;Alice&quot;, &quot;age&quot;: 25, &quot;city&quot;: &quot;New York&quot;&#125;,
+    &#123;&quot;name&quot;: &quot;Bob&quot;, &quot;age&quot;: 30, &quot;city&quot;: &quot;San Francisco&quot;&#125;,
+]
+# 将 JSON 转换为 DataFrame
+df = pd.DataFrame(json_data)
+
+# 使用 json_normalize 展开嵌套数据
+df = json_normalize(nested_json)
+</code></pre>
 
             
         </div>
@@ -255,11 +342,11 @@
         
         <span class="tag">
             
-            <a href="/tags/%E7%BB%84%E4%BC%9A/" style="color: #ff7d73">组会</a>
+            <a href="/tags/python/" style="color: #ffa2c4">python</a>
         </span>
         
     </div>
-    <a href="/2024/09/19/0919%E7%BB%84%E4%BC%9A/" class="go-post">阅读全文</a>
+    <a href="/2024/09/19/python%E4%B8%AD%E7%9A%84%E5%90%84%E7%A7%8D%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E8%BE%A8%E6%9E%90/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
@@ -327,7 +414,7 @@ hexo d
         
         <span class="tag">
             
-            <a href="/tags/javascript/" style="color: #00a596">javascript</a>
+            <a href="/tags/javascript/" style="color: #03a9f4">javascript</a>
         </span>
         
     </div>
