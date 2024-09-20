@@ -49,6 +49,9 @@
     <!-- 添加这两行代码引入 JS 文件 -->
     <script src="/js/anime.min.js"></script>
     <script src="/js/fireworks.js"></script>
+    
+    
+
 </head>
 <body>
     <div id="layout">
@@ -205,16 +208,6 @@
 <h5 id="1-npm-Node-Package-Manager"><a href="#1-npm-Node-Package-Manager" class="headerlink" title="1. npm (Node Package Manager)"></a>1. npm (Node Package Manager)</h5><p>简介: npm 是 Node.js 官方的包管理工具，也是最早出现的管理工具。<br>优点: 官方支持，社区庞大。能与 Node.js 无缝集成。<br>缺点: 速度较慢: 默认使用国外的 npm registry，下载依赖时可能受网络限制。<br>存储效率较低: 每个项目安装依赖时会在项目的 node_modules 文件夹中创建大量的重复文件。<br>安装：下载 Node.js 并安装，选择合适的版本。安装完成后，打开命令行终端并输入以下命令来确认 npm 是否安装成功：</p>
 <pre><code class="bash">npm -v
 </code></pre>
-<h5 id="2-cnpm-China-npm"><a href="#2-cnpm-China-npm" class="headerlink" title="2. cnpm (China npm)"></a>2. cnpm (China npm)</h5><p>简介: cnpm 是阿里巴巴团队开发的 npm 的国内镜像版本，主要目的是解决在中国大陆使用 npm 的速度问题。<br>优点: 速度更快，依赖于国内镜像源，下载速度大幅提升。<br>缺点: 本质上只是 npm 的镜像版本，功能和体验与 npm 类似，只是下载速度快。<br>安装：cnpm 是 npm 的国内镜像工具，安装 cnpm 前需要先安装 npm。</p>
-<pre><code class="bash">npm install -g cnpm --registry=https://registry.npmmirror.com
-cnpm -v
-</code></pre>
-<h5 id="3-pnpm-Performant-npm"><a href="#3-pnpm-Performant-npm" class="headerlink" title="3. pnpm (Performant npm)"></a>3. pnpm (Performant npm)</h5><p>简介: pnpm 是一个高效的包管理器，目标是解决 npm 在存储空间上的低效问题。<br>优点: 高效存储: pnpm 使用硬链接（hard link）机制，共享不同项目的依赖库，避免重复下载相同的依赖，节省了磁盘空间。速度快: 由于缓存机制的改进，安装依赖的速度比 npm 快。并行安装: 它可以并行处理依赖的安装任务，进一步提升速度。<br>缺点: 虽然已经有较大的用户群体，但相对 npm 还是较新。<br>安装：</p>
-<pre><code class="bash">npm install -g pnpm
-yarn global add pnpm  # 另外一种方式
-pnpm -v
-</code></pre>
-
             
         </div>
     </div>
@@ -267,7 +260,7 @@ pnpm -v
         
         <span class="tag">
             
-            <a href="/tags/%E9%81%90%E6%83%B3/" style="color: #00a596">遐想</a>
+            <a href="/tags/%E9%81%90%E6%83%B3/" style="color: #ff7d73">遐想</a>
         </span>
         
     </div>
@@ -328,7 +321,7 @@ pnpm -v
         
         <span class="tag">
             
-            <a href="/tags/python/" style="color: #ffa2c4">python</a>
+            <a href="/tags/python/" style="color: #00a596">python</a>
         </span>
         
     </div>
@@ -400,7 +393,7 @@ hexo d
         
         <span class="tag">
             
-            <a href="/tags/javascript/" style="color: #03a9f4">javascript</a>
+            <a href="/tags/javascript/" style="color: #00bcd4">javascript</a>
         </span>
         
     </div>

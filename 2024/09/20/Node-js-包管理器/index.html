@@ -51,6 +51,9 @@
     <!-- 添加这两行代码引入 JS 文件 -->
     <script src="/js/anime.min.js"></script>
     <script src="/js/fireworks.js"></script>
+    
+    
+
 </head>
 <body>
     <div id="layout">
@@ -177,6 +180,7 @@
 <h5 id="1-npm-Node-Package-Manager"><a href="#1-npm-Node-Package-Manager" class="headerlink" title="1. npm (Node Package Manager)"></a>1. npm (Node Package Manager)</h5><p>简介: npm 是 Node.js 官方的包管理工具，也是最早出现的管理工具。<br>优点: 官方支持，社区庞大。能与 Node.js 无缝集成。<br>缺点: 速度较慢: 默认使用国外的 npm registry，下载依赖时可能受网络限制。<br>存储效率较低: 每个项目安装依赖时会在项目的 node_modules 文件夹中创建大量的重复文件。<br>安装：下载 Node.js 并安装，选择合适的版本。安装完成后，打开命令行终端并输入以下命令来确认 npm 是否安装成功：</p>
 <pre><code class="bash">npm -v
 </code></pre>
+<span id="more"></span>
 <h5 id="2-cnpm-China-npm"><a href="#2-cnpm-China-npm" class="headerlink" title="2. cnpm (China npm)"></a>2. cnpm (China npm)</h5><p>简介: cnpm 是阿里巴巴团队开发的 npm 的国内镜像版本，主要目的是解决在中国大陆使用 npm 的速度问题。<br>优点: 速度更快，依赖于国内镜像源，下载速度大幅提升。<br>缺点: 本质上只是 npm 的镜像版本，功能和体验与 npm 类似，只是下载速度快。<br>安装：cnpm 是 npm 的国内镜像工具，安装 cnpm 前需要先安装 npm。</p>
 <pre><code class="bash">npm install -g cnpm --registry=https://registry.npmmirror.com
 cnpm -v
