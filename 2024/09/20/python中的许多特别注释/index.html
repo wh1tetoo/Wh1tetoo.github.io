@@ -1,0 +1,353 @@
+
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8" />
+    <title>python中的许多特别注释 | 振振姚 の 小窝</title>
+    <meta name="author" content="Zhen Yao" />
+    <meta name="description" content="两耳不闻窗外事 一心只读圣贤书" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <!-- 添加这两行代码引入 JS 文件 -->
+    <script src="/js/anime.min.js"></script>
+    <script src="/js/fireworks.js"></script>
+
+
+</head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>振振姚 の 小窝</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;振振姚 の 小窝</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>python中的许多特别注释</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/9/20
+        </span>
+        
+        <span class="category">
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                程序猿
+            </a>
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/python/" style="color: #ffa2c4">
+                    python
+                </a>
+            </span>
+            
+        </span>
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <p>起初是在深度学习的书中看到了一个特别注释 #@save， 书上说这个注释可以将我自己定义的类，函数等东西放到我的库里面，然后以后调用库中的这个函数就可以了。不过有点疑惑，一个是他为什么直接就保存到 d2l 这个库中了，他还 import 了许多其他的库，例如 matplotlib， numpy。为什么没有保存到这个库里面。还有一个问题是 import 库到底有几种方法？顺着这个，我得查一查GPT。</p>
+<span id="more"></span>
+
+<h2 id="导入库的方式"><a href="#导入库的方式" class="headerlink" title="导入库的方式"></a>导入库的方式</h2><p>在 Python 中，导入模块（库）的方式有多种，每种方式适用于不同的场景。以下是常见的导入方式及其示例：</p>
+<h3 id="直接导入模块"><a href="#直接导入模块" class="headerlink" title="直接导入模块"></a>直接导入模块</h3><p>这是最常见的导入方式，适用于导入整个模块。</p>
+<pre><code class="python">import numpy
+</code></pre>
+<p>使用时需要通过模块名访问其功能：</p>
+<h3 id="导入模块并指定别名"><a href="#导入模块并指定别名" class="headerlink" title="导入模块并指定别名"></a>导入模块并指定别名</h3><p>使用 as 关键字为模块指定一个简短的别名，方便调用。</p>
+<pre><code class="python">import numpy as np
+</code></pre>
+<h3 id="从模块中导入特定的函数或类"><a href="#从模块中导入特定的函数或类" class="headerlink" title="从模块中导入特定的函数或类"></a>从模块中导入特定的函数或类</h3><p>只导入某个模块的部分功能，避免导入整个模块。</p>
+<pre><code class="python">from numpy import array
+array([1, 2, 3])
+</code></pre>
+<h3 id="从模块中导入多个函数或类"><a href="#从模块中导入多个函数或类" class="headerlink" title="从模块中导入多个函数或类"></a>从模块中导入多个函数或类</h3><p>导入多个特定的功能，使用逗号分隔。</p>
+<pre><code class="python">from numpy import array, mean
+</code></pre>
+<h3 id="从模块中导入所有内容"><a href="#从模块中导入所有内容" class="headerlink" title="从模块中导入所有内容"></a>从模块中导入所有内容</h3><p>使用 * 导入模块中的所有公共对象。一般不推荐这种方式，因为容易造成命名冲突。</p>
+<pre><code class="python">from numpy import *
+</code></pre>
+<h3 id="嵌套导入（按需导入）"><a href="#嵌套导入（按需导入）" class="headerlink" title="嵌套导入（按需导入）"></a>嵌套导入（按需导入）</h3><p>在函数或代码块中导入库，仅在需要时导入，可以减少程序启动时的内存消耗。</p>
+<pre><code class="python">def my_function():
+    import numpy as np
+    return np.array([1, 2, 3])
+</code></pre>
+<h2 id="特殊注释"><a href="#特殊注释" class="headerlink" title="特殊注释"></a>特殊注释</h2><p>在 Python 中，除了普通的注释（使用 #），还有一些特殊的注释和装饰器（decorators），用于为代码增加特定的行为或标识。以下是一些常见的特殊注释和装饰器的解释：</p>
+<h3 id="1-普通注释"><a href="#1-普通注释" class="headerlink" title="1. 普通注释"></a>1. 普通注释</h3><p>使用 # 表示单行注释，注释的内容不会执行。</p>
+<pre><code class="python"># 这是一个普通的注释
+x = 10  # 变量 x 赋值为 10
+</code></pre>
+<h3 id="2-save-注释"><a href="#2-save-注释" class="headerlink" title="2. #@save 注释"></a>2. #@save 注释</h3><p>这种注释通常出现在特定的代码框架或工具中，用于标记某些代码块。它本身并不是 Python 语言的内置特性。比如在深度学习书籍或教程的代码中，#@save 常用来表示要保存某些重要代码片段。</p>
+<pre><code class="python">#@save
+def my_model():
+    pass
+</code></pre>
+<p>用途：这种注释通常与工具集成，用于代码块的管理、保存或特殊处理。它不会直接影响 Python 的运行。</p>
+<h3 id="3-装饰器（-decorator）"><a href="#3-装饰器（-decorator）" class="headerlink" title="3. 装饰器（@decorator）"></a>3. 装饰器（@decorator）</h3><p>装饰器是 Python 提供的一种函数或类的高级功能，允许在函数或方法的定义前后增加行为。装饰器使用 @ 符号来引用，紧跟在函数或方法定义之前。</p>
+<p>常见装饰器有：</p>
+<h4 id="a-property"><a href="#a-property" class="headerlink" title="a. @property"></a>a. @property</h4><p>将一个方法变成一个属性，使得你可以像访问属性一样调用它，而**不需要显式加上括号 ()**。</p>
+<pre><code class="python">class Person:
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+person = Person(&#39;Alice&#39;)
+print(person.name)  # 像访问属性一样，调用 name 而不是 name()
+</code></pre>
+<h4 id="b-staticmethod"><a href="#b-staticmethod" class="headerlink" title="b. @staticmethod"></a>b. @staticmethod</h4><p>用于定义一个静态方法。静态方法不需要访问实例或类属性。</p>
+<pre><code class="python">class MyClass:
+    @staticmethod
+    def my_static_method():
+        print(&quot;This is a static method.&quot;)
+</code></pre>
+<h4 id="c-classmethod"><a href="#c-classmethod" class="headerlink" title="c. @classmethod"></a>c. @classmethod</h4><p>定义类方法。类方法的第一个参数是类本身，而不是实例对象。</p>
+<pre><code class="python">class MyClass:
+    @classmethod
+    def my_class_method(cls):
+        print(&quot;This is a class method.&quot;)
+</code></pre>
+<h4 id="d-自定义装饰器"><a href="#d-自定义装饰器" class="headerlink" title="d. 自定义装饰器"></a>d. 自定义装饰器</h4><p>你可以定义自己的装饰器，用于修改或增强函数的行为。</p>
+<pre><code class="python">def my_decorator(func):
+    def wrapper():
+        print(&quot;Before the function.&quot;)
+        func()
+        print(&quot;After the function.&quot;)
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print(&quot;Hello!&quot;)
+
+say_hello()
+# 输出:
+# Before the function.
+# Hello!
+# After the function.
+</code></pre>
+<h3 id="4-type-ignore-注释"><a href="#4-type-ignore-注释" class="headerlink" title="4. # type: ignore 注释"></a>4. # type: ignore 注释</h3><p>这是一种类型注释，通常与 mypy 等静态类型检查器结合使用，用于忽略特定行代码的类型检查。</p>
+<pre><code class="python">x = &quot;Hello&quot;  # type: ignore
+x = 123  # 类型不匹配，但忽略类型检查
+</code></pre>
+<h3 id="5-TODO-注释"><a href="#5-TODO-注释" class="headerlink" title="5. # TODO 注释"></a>5. # TODO 注释</h3><p>虽然 # TODO 并不是 Python 特有的注释类型，但它是开发者常用的一种注释，标记未完成的任务或代码中的改进项。</p>
+<pre><code class="python"># TODO: 实现此函数
+def my_function():
+    pass
+</code></pre>
+<h3 id="6-noqa-注释"><a href="#6-noqa-注释" class="headerlink" title="6. # noqa 注释"></a>6. # noqa 注释</h3><h1 id="noqa-是用于忽略某些代码检查工具（如-flake8）的注释，用于忽略某一行的检查错误。"><a href="#noqa-是用于忽略某些代码检查工具（如-flake8）的注释，用于忽略某一行的检查错误。" class="headerlink" title="noqa 是用于忽略某些代码检查工具（如 flake8）的注释，用于忽略某一行的检查错误。"></a>noqa 是用于忽略某些代码检查工具（如 flake8）的注释，用于忽略某一行的检查错误。</h1><pre><code class="python">
+def my_function():  # noqa: E501
+    print(&quot;This is a very long line that might break some style guides.&quot;)
+</code></pre>
+<h3 id="7-类型注解-type"><a href="#7-类型注解-type" class="headerlink" title="7. 类型注解 (# type:)"></a>7. 类型注解 (# type:)</h3><p>可以为变量或函数加上类型注释，用来帮助工具做静态类型检查。</p>
+<pre><code class="python">x: int = 10  # 表示 x 是一个整数
+</code></pre>
+<p>这些特殊的注释和装饰器让 Python 代码在可读性、功能扩展和类型检查方面变得更加强大。</p>
+<hr>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 明白了注释怎么用，和库的调用 </li>
+<li><input disabled="" type="checkbox"> 再看word2vec之前，需要看 softmax 和 求梯度</li>
+</ul>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2024 - 2024 振振姚 の 小窝
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Zhen Yao
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
