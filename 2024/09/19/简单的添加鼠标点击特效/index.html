@@ -48,6 +48,9 @@
 
 
 
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
+
 
 
 
@@ -195,7 +198,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/javascript/" style="color: #00bcd4">
+                <a href="/tags/javascript/" style="color: #ff7d73">
                     javascript
                 </a>
             </span>
@@ -234,6 +237,10 @@ hexo d
     
     
     
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
     
     
     
@@ -270,6 +277,20 @@ hexo d
     <script src="/js/main.js"></script>
     
     
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "",
+        clientSecret: "",
+        repo: "",
+        owner: "",
+        admin: "".split(","),
+        language: "",
+        id: location.pathname,
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
 
 
 

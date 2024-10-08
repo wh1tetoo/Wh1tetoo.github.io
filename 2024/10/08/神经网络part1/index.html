@@ -4,7 +4,7 @@
 <html lang="zh">
 <head>
     <meta charset="utf-8" />
-    <title>Tags: javascript | 振振姚 の 小窝</title>
+    <title>神经网络part1 | 振振姚 の 小窝</title>
     <meta name="author" content="Zhen Yao" />
     <meta name="description" content="两耳不闻窗外事 一心只读圣贤书" />
     <meta name="keywords" content="" />
@@ -48,6 +48,13 @@
 
 
 
+<script src="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/gitalk/1.8.0/gitalk.min.css" />
+
+
+
+
+
 <link rel="stylesheet" href="/css/main.css" />
 
     <!-- 添加这两行代码引入 JS 文件 -->
@@ -55,7 +62,7 @@
     <script src="/js/fireworks.js"></script>
 
 
-</head>
+<meta name="generator" content="Hexo 7.3.0"></head>
 <body>
     <div id="layout">
         <transition name="fade">
@@ -161,140 +168,115 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div id="archives">
-    
-    <div class="categories-tags">
+            <div class="article">
+    <div>
+        <h1>神经网络part1</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/10/8
+        </span>
         
-        
-        
-        <span>
-            <a href="/tags/python/" style="background: #03a9f4">
+        <span class="category">
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">
                 <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                python
+                程序猿
             </a>
         </span>
         
         
-        
-        <span>
-            <a href="/tags/%E9%AB%98%E4%B8%AD%E7%9F%A5%E8%AF%86/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                高中知识
-            </a>
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
+            
+            
+            <span class="tag">
+                
+                <a href="/tags/machinelearning/" style="color: #00bcd4">
+                    machinelearning
+                </a>
+            </span>
+            
         </span>
-        
-        
-        
-        <span>
-            <a href="/tags/LLM/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                LLM
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/%E9%81%90%E6%83%B3/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                遐想
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/deeplearning/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                deeplearning
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/javascript/" style="background: linear-gradient(120deg, #9abbf7 0%, #ffbbf4 100%)">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                javascript
-            </a>
-        </span>
-        
-        
-        
-        
-        
-        <span>
-            <a href="/tags/%E7%BB%8F%E5%8E%86/" style="background: #00a596">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                经历
-            </a>
-        </span>
-        
-        
-        
-        <span>
-            <a href="/tags/machinelearning/" style="background: #ff7d73">
-                <span class="icon">
-                    <i class="fa-solid fa-tags fa-fw"></i>
-                </span>
-                machinelearning
-            </a>
-        </span>
-        
         
     </div>
     
-    <div class="timeline">
-        <div class="timeline-tail"></div>
-        <div class="timeline-content">
-            <div class="item-time">2024/9/19</div>
-            <a href="/2024/09/19/%E7%AE%80%E5%8D%95%E7%9A%84%E6%B7%BB%E5%8A%A0%E9%BC%A0%E6%A0%87%E7%82%B9%E5%87%BB%E7%89%B9%E6%95%88/">
-                <h3>简单的添加鼠标点击特效</h3>
-            </a>
-            <div class="info">
-                
-                <span class="category">
-                    <a href="/categories/%E7%A8%8B%E5%BA%8F%E7%8C%BF/">
-                        <span class="icon">
-                            <i class="fa-solid fa-bookmark fa-fw"></i>
-                        </span>
-                        程序猿
-                    </a>
-                </span>
-                
-                
-                <span class="tags">
-                    <span class="icon">
-                        <i class="fa-solid fa-tags fa-fw"></i>
-                    </span>
-                    
-                    
-                    <span class="tag">
-                        
-                        <a href="/tags/javascript/" style="color: #03a9f4">
-                            javascript
-                        </a>
-                    </span>
-                    
-                </span>
-                
-            </div>
-        </div>
+    <div class="content" v-pre>
+        <blockquote>
+<p>“M-P神经元模型” </p>
+</blockquote>
+<ul>
+<li>输入信号</li>
+<li>connection 传递</li>
+<li>阈值比较</li>
+<li>激活函数处理 （常用sigmoid，而不用阶跃函数）</li>
+</ul>
+<span id="more"></span>
+<blockquote>
+<p>感知机 Perception</p>
+</blockquote>
+<ul>
+<li>两层神经元（输入层和输出层）</li>
+<li>亦称“阈值逻辑单元”</li>
+<li>输入层用来接收外界输入，输出层用激活函数进行输出</li>
+<li>两层的感知机网络可以解决线性可分问题，不能解决像异或的非线性可分问题</li>
+<li>引申出：多层功能神经元，例如<strong>多层前馈神经网络</strong>（每层神经元与下一层完全互连，不存在同层连接，不存在跨层连接）</li>
+<li>输出层和输入层之间的一层神经元，被称为隐层</li>
+<li>神经网络的学习过程就是根据训练数据来调整神经元之间的“连接权”以及每个功能神经元的阈值</li>
+</ul>
+<blockquote>
+<p>误差逆传播算法 error BackPropagation</p>
+</blockquote>
+<ul>
+<li>标准BP算法的更新规则是基于单个的$E_k$推导而得</li>
+<li>BP算法基于梯度下降策略，以目标的负梯度方向进行调整</li>
+<li>例如，目标是误差$E_k$，给定学习率$\eta$，用sigmoid激活函数。就可以得到BP算法中关于各个权重和阈值的更新公式。里面包含 $\eta, g_j, e_h$ 等可以用预测数据 $\hat{y^k_j}$, 观测数据 $y^k_j$, 隐层数据 $b_h$ 获得 </li>
+<li>给定训练集${(x_k,y_k)}^m_{k&#x3D;1}$ 和学习率 $\eta$, 算法如下：<ul>
+<li>给输入，根据随机生成的权重阈值得到输出</li>
+<li>计算输出层神经元的梯度项 $g_j$</li>
+<li>隐层神经元的梯度项 $e_h$</li>
+<li>更新连接权和阈值</li>
+<li>直到达到停止条件</li>
+</ul>
+</li>
+<li>引出累计误差逆传播算法 accumulated error backpropagation<ul>
+<li>标准BP参数更新频繁，可能出现抵消现象</li>
+<li>它是读取整个D后对参数进行更新</li>
+</ul>
+</li>
+<li>理论证明：只需一个包含足够多神经元的隐层，多层前馈神经网络就能以任意精度逼近任意复杂度的连续函数，关键是如何设置隐层神经元的个数。</li>
+<li>解决过拟合问题：“早停” 和 “正则化”</li>
+</ul>
+<blockquote>
+<p>全局最小和局部极小</p>
+</blockquote>
+<ul>
+<li>采用梯度下降算法会遇到的问题，最小的意思是在参数空间中，寻找一组最优参数使得E最小</li>
+<li>跳出局部极小的策略： （也可能跳出全局最小）<ul>
+<li>多组不同参数值初始化多个神经网络</li>
+<li>模拟退火：以一定的概率接受比当前解更差的结果</li>
+<li>随机梯度下降</li>
+</ul>
+</li>
+</ul>
+
     </div>
+    
+    
+    
+    <div id="comment">
+        <div id="gitalk-container"></div>
+    </div>
+    
+    
+    
+    
     
 </div>
 
@@ -326,6 +308,26 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+<script>
+    const gitalk = new Gitalk({
+        clientID: "",
+        clientSecret: "",
+        repo: "",
+        owner: "",
+        admin: "".split(","),
+        language: "",
+        id: location.pathname,
+        
+    })
+    gitalk.render("gitalk-container");
+</script>
+
+
+
+
     
 </body>
 </html>
